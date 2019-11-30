@@ -1,5 +1,6 @@
 # Java
 JAVA_SOURCES = \
+	org/apache/hadoop/fs/gfarmfs/Gfarm.java \
 	org/apache/hadoop/fs/gfarmfs/GfarmFileSystem.java \
 	org/apache/hadoop/fs/gfarmfs/GfarmFSOutputStream.java \
 	org/apache/hadoop/fs/gfarmfs/GfarmFSInputStream.java \

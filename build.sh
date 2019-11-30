@@ -1,25 +1,21 @@
 #!/usr/bin/env bash
 
-# Please set these variables
-export JAVA_HOME=/usr/lib/jvm/java-6-sun
-export HADOOP_HOME=/home/marilia/hadoop-1.1.2
-export GFARM_HOME=/data/local3/marilia/gfarm
+# export GFARM_HOME=
 export CPLUS_INCLUDE_PATH=${GFARM_HOME}/include
+echo $JAVA_HOME
+echo $HADOOP_HOME
+echo $GFARM_HOME
 
 # Include jar files
-export CLASSPATH=${CLASSPATH}
-for f in $HADOOP_HOME/hadoop*core*.jar; do
-  CLASSPATH=${CLASSPATH}:$f;
-done
-for f in $HADOOP_HOME/lib/*.jar; do
-  CLASSPATH=${CLASSPATH}:$f;
-done
-for f in $HADOOP_HOME/lib/jetty-ext/*.jar; do
-  CLASSPATH=${CLASSPATH}:$f;
-done
+export CLASSPATH=$(hadoop classpath)
+
+echo "########"
+echo $CLASSPATH
+echo "########"
 
 make 
 
-cp hadoop-gfarm.jar ${HADOOP_HOME}/lib/
-cp libGfarmFSNative.so ${HADOOP_HOME}/lib/native/Linux-amd64-64/
-cp libGfarmFSNative.so ${HADOOP_HOME}/lib/native/Linux-i386-32/
+# cp hadoop-gfarm.jar ${HADOOP_HOME}/lib/
+# cp hadoop-gfarm.jar ${HADOOP_HOME}/share/hadoop/tools/lib/
+# cp hadoop-gfarm.jar ${HADOOP_HOME}/share/hadoop/common/lib/
+# cp libGfarmFSNative.so ${HADOOP_HOME}/lib/native/
