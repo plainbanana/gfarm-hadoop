@@ -204,7 +204,7 @@ public class GfarmAbstractFileSystem extends AbstractFileSystem {
     }
 
     @Override
-    public void setVerifyChecksum(boolean b) throws AccessControlException, IOException {
+    public void setVerifyChecksum(boolean verifyChecksum) throws AccessControlException, IOException {
         fsImpl.setVerifyChecksum(verifyChecksum);
         System.out.println("setVerifyChecksum(): fsImpl returned successfully");
     }
