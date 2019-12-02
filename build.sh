@@ -15,7 +15,7 @@ echo "########"
 
 make 
 
-# cp hadoop-gfarm.jar ${HADOOP_HOME}/lib/
-# cp hadoop-gfarm.jar ${HADOOP_HOME}/share/hadoop/tools/lib/
-# cp hadoop-gfarm.jar ${HADOOP_HOME}/share/hadoop/common/lib/
-# cp libGfarmFSNative.so ${HADOOP_HOME}/lib/native/
+cp hadoop-gfarm.jar ${HADOOP_HOME}/lib/
+cp hadoop-gfarm.jar ${HADOOP_HOME}/share/hadoop/tools/lib/
+cp hadoop-gfarm.jar ${HADOOP_HOME}/share/hadoop/common/lib/
+cp libGfarmFSNative.so ${HADOOP_HOME}/lib/native/
