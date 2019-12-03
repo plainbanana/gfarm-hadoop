@@ -19,6 +19,6 @@ public class Gfarm extends DelegateToFileSystem {
 
     @Override
     public int getUriDefaultPort() {
-        return super.getUriDefaultPort();
+        return GfarmFileSystem.DEFAULT_GFMD_METADB_PORT;
     }
 }

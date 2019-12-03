@@ -27,7 +27,7 @@ public class GfarmFileSystem extends FileSystem {
     private URI uri;
     private Path workingDir;
 
-    public static final int DEFAULT_GFARM_PORT = 2049;
+    public static final int DEFAULT_GFMD_METADB_PORT = 10601;
     protected long defaultBlockSize;
 
     public GfarmFileSystem() {

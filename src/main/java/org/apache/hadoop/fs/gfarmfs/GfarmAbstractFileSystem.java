@@ -55,10 +55,10 @@ public class GfarmAbstractFileSystem extends AbstractFileSystem {
         this.fsImpl.initialize(uri, conf);
     }
 
-    // @Override
-    // public int getUriDefaultPort() {
-    //     return GfarmFileSystem.DEFAULT_GFARM_PORT;
-    // }
+    @Override
+    public int getUriDefaultPort() {
+        return GfarmFileSystem.DEFAULT_GFMD_METADB_PORT;
+    }
 
     @Override
     public void checkPath(Path path) {
@@ -67,6 +67,7 @@ public class GfarmAbstractFileSystem extends AbstractFileSystem {
     }
 
     @Override
+    @Deprecated
     public FsServerDefaults getServerDefaults() throws IOException {
         return this.getServerDefaults();
     }
