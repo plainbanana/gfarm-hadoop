@@ -1,1 +1,8 @@
 .idea
+
+hadoop-gfarm.jar
+libGfarmFSNative.so
+org_apache_hadoop_fs_gfarmfs_GfarmFSNative.h
+org_apache_hadoop_fs_gfarmfs_GfarmFSNativeInputChannel.h
+org_apache_hadoop_fs_gfarmfs_GfarmFSNativeOutputChannel.h
+*.class
