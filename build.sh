@@ -15,7 +15,17 @@ echo "########"
 
 make 
 
-cp hadoop-gfarm.jar ${HADOOP_HOME}/lib/
-cp hadoop-gfarm.jar ${HADOOP_HOME}/share/hadoop/tools/lib/
-cp hadoop-gfarm.jar ${HADOOP_HOME}/share/hadoop/common/lib/
-cp libGfarmFSNative.so ${HADOOP_HOME}/lib/native/
+echo "" 
+read -n1 -p "install? (y/N): " yn
+if [[ $yn = [Y] ]]; then
+  echo "" 
+  echo "install" 
+  cp hadoop-gfarm.jar ${HADOOP_HOME}/lib/
+  cp hadoop-gfarm.jar ${HADOOP_HOME}/share/hadoop/tools/lib/
+  cp hadoop-gfarm.jar ${HADOOP_HOME}/share/hadoop/common/lib/
+  cp libGfarmFSNative.so ${HADOOP_HOME}/lib/native/
+  echo "install done" 
+else
+  echo "" 
+  echo "abort" 
+fi
