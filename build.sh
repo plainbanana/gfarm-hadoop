@@ -17,7 +17,7 @@ make
 
 echo "" 
 read -n1 -p "install? (y/N): " yn
-if [[ $yn = [Y] ]]; then
+if [[ $yn = [yY] ]]; then
   echo "" 
   echo "install" 
   cp hadoop-gfarm.jar ${HADOOP_HOME}/lib/
