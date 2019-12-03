@@ -25,8 +25,7 @@ libGfarmFSNative.so: org_apache_hadoop_fs_gfarmfs_GfarmFSNative.h GfarmFSNative.
 	g++ ${CXXFLAGS} -shared -fPIC GfarmFSNative.cpp -o libGfarmFSNative.so ${LDFLAGS} -L ${GFARM_HOME}/lib
 
 org_apache_hadoop_fs_gfarmfs_GfarmFSNative.h: ${JAVA_SOURCES}
-	javac -g -Xlint:deprecation -classpath ${CLASSPATH} ${JAVA_SOURCES}
-	javah -classpath ${CLASSPATH} -jni ${JNI_CLASSES}
+	javac -g -Xlint:deprecation -classpath ${CLASSPATH} ${JAVA_SOURCES} -h .
 
 clean:
 	rm -f *.class
