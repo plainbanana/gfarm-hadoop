@@ -56,6 +56,45 @@ public class GfarmAbstractFileSystem extends AbstractFileSystem {
     }
 
     @Override
+    public Statistics getStatistics() {
+        System.out.println("getStatistics():");
+        Statistics stats = super.getStatistics();
+        System.out.println("getStatistics(): super returned stats=" + stats);
+        return stats;
+    }
+
+    @Override
+    public void checkScheme(URI uri, String supportedScheme) {
+        System.out.println("checkScheme(): uri=" + uri + " supportedScheme=" + supportedScheme);
+        super.checkScheme(uri, supportedScheme);
+        System.out.println("checkScheme(): super returned successfully");
+    }
+
+    @Override
+    public URI getUri() {
+        System.out.println("getUri():");
+        URI uri = super.getUri();
+        System.out.println("getUri(): super returned uri=" + uri);
+        return uri;
+    }
+
+    @Override
+    public String getUriPath(final Path p) {
+        System.out.println("getUriPath(): path=" + p);
+        String s = super.getUriPath(p);
+        System.out.println("getUriPath(): super returned string=" + s);
+        return s;
+    }
+
+    @Override
+    public Path makeQualified(Path path) {
+        System.out.println("makeQualified(): path=" + path);
+        Path p = super.makeQualified(path);
+        System.out.println("makeQualified(): super returned p=" + p);
+        return p;
+    }
+
+    @Override
     public int getUriDefaultPort() {
         return GfarmFileSystem.DEFAULT_GFMD_METADB_PORT;
     }
@@ -67,9 +106,36 @@ public class GfarmAbstractFileSystem extends AbstractFileSystem {
     }
 
     @Override
-    @Deprecated
+    public Path getInitialWorkingDirectory() {
+        System.out.println("getInitialWorkingDirectory():");
+        Path p = super.getInitialWorkingDirectory();
+        System.out.println("getInitialWorkingDirectory(): super returned p=" + p);
+        return p;
+    }
+
+    @Override
+    public Path getHomeDirectory() {
+        System.out.println("getHomeDirectory():");
+        Path p = super.getHomeDirectory();
+        System.out.println("getHomeDirectory(): super returned p=" + p);
+        return p;
+    }
+
+    @Override
     public FsServerDefaults getServerDefaults() throws IOException {
-        return this.getServerDefaults();
+        System.out.println("getServerDefaults():");
+        @SuppressWarnings("deprecation")
+        FsServerDefaults defaults = fsImpl.getServerDefaults();
+        System.out.println("getServerDefaults(): fsImpl returned defaults=" + defaults);
+        return defaults;
+    }
+
+    @Override
+    public Path resolvePath(final Path p) throws FileNotFoundException, UnresolvedLinkException, AccessControlException, IOException {
+        System.out.println("resolvePath(): path=" + p);
+        Path path = super.resolvePath(p);
+        System.out.println("resolvePath(): super returned path=" + path);
+        return path;
     }
 
     @Override
@@ -93,6 +159,7 @@ public class GfarmAbstractFileSystem extends AbstractFileSystem {
         }
 
         FSDataOutputStream stream = fsImpl.create(f, absolutePermission, flag, bufferSize, replication, blockSize, progress, checksumOpt);
+        System.out.println("createInternal(): fsImpl returned status=" + stream);
         return stream;
     }
 
@@ -218,4 +285,28 @@ public class GfarmAbstractFileSystem extends AbstractFileSystem {
     //     sb.append('}');
     //     return sb.toString();
     // }
+
+    @Override
+    public String getCanonicalServiceName() {
+        System.out.println("getCanonicalServiceName():");
+        String name = super.getCanonicalServiceName();
+        System.out.println("getCanonicalServiceName(): super returned name=" + name);
+        return name;
+    }
+
+    @Override
+    public int hashCode() {
+        System.out.println("hashCode():");
+        int code = super.hashCode();
+        System.out.println("hashCode(): super returned code=" + code);
+        return code;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        System.out.println("equals(): other=" + other);
+        boolean eq = super.equals(other);
+        System.out.println("equals(): super returned equals=" + eq);
+        return eq;
+    }
 }

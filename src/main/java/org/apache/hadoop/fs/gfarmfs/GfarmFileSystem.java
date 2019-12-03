@@ -185,10 +185,12 @@ public class GfarmFileSystem extends FileSystem {
         try {
             entries = gfsImpl.readdir(srep);
         } catch (Exception e) {
+            System.out.println("listStatus()gf: readdir exception");
             return null;
         }
 
         if (entries == null)
+            System.out.println("listStatus()gf: no entries");
             return null;
 
         // gfsreaddir() returns "." and ".."; strip them before
